@@ -11,7 +11,7 @@
 #include "textureManager.h"
 #include "image.h"
 #include "planet.h"
-#include "ship.h"
+#include "player.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -22,7 +22,7 @@ private:
 	// game items
 	TextureManager nebulaTexture;   // nebula texture
 	TextureManager gameTextures;    // game texture
-	Ship    ship1, ship2;           // spaceships
+	player    player1;           // player
 	Planet  planet;         // the planet
 	Image   nebula;         // backdrop image
 

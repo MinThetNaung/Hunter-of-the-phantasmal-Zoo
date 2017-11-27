@@ -10,13 +10,13 @@
 #include "entity.h"
 #include "constants.h"
 
-namespace shipNS
+namespace playerNS
 {
 	const int WIDTH = 32;                   // image width
 	const int HEIGHT = 32;                  // image height
 	const int X = GAME_WIDTH / 2 - WIDTH / 2;   // location on screen
 	const int Y = GAME_HEIGHT / 2 - HEIGHT / 2;
-	const float ROTATION_RATE = (float)PI / 4; // radians per second
+	/*const float ROTATION_RATE = (float)PI / 4; // radians per second
 	const float SPEED = 100;                // 100 pixels per second
 	const float MASS = 300.0f;              // mass
 	const int   TEXTURE_COLS = 8;           // texture has 8 columns
@@ -27,18 +27,18 @@ namespace shipNS
 	const float SHIP_ANIMATION_DELAY = 0.2f;    // time between frames
 	const int   SHIELD_START_FRAME = 24;    // shield start frame
 	const int   SHIELD_END_FRAME = 27;      // shield end frame
-	const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
+	const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames*/
 }
 
 // inherits from Entity class
-class Ship : public Entity
+class player : public Entity
 {
 private:
 	bool    shieldOn;
 	Image   shield;
 public:
 	// constructor
-	Ship();
+	player();
 
 	// inherited member functions
 	virtual void draw();

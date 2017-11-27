@@ -45,22 +45,15 @@ void Spacewar::initialize(HWND hwnd)
 	if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing planet"));
 
-	// ship
-	if (!ship1.initialize(this, shipNS::WIDTH, shipNS::HEIGHT, shipNS::TEXTURE_COLS, &gameTextures))
+	// player
+	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &gameTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ship1"));
-	ship1.setFrames(shipNS::SHIP1_START_FRAME, shipNS::SHIP1_END_FRAME);
-	ship1.setCurrentFrame(shipNS::SHIP1_START_FRAME);
-	ship1.setX(GAME_WIDTH / 4);
-	ship1.setY(GAME_HEIGHT / 4);
-	ship1.setVelocity(VECTOR2(shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
-															   // ship2
-	if (!ship2.initialize(this, shipNS::WIDTH, shipNS::HEIGHT, shipNS::TEXTURE_COLS, &gameTextures))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ship2"));
-	ship2.setFrames(shipNS::SHIP2_START_FRAME, shipNS::SHIP2_END_FRAME);
-	ship2.setCurrentFrame(shipNS::SHIP2_START_FRAME);
-	ship2.setX(GAME_WIDTH - GAME_WIDTH / 4);
-	ship2.setY(GAME_HEIGHT / 4);
-	ship2.setVelocity(VECTOR2(-shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
+	player1.setFrames(playerNS::PLAYER_START_FRAME, playerNS::PLAYER_END_FRAME);
+	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
+	player1.setX(GAME_WIDTH / 4);
+	player1.setY(GAME_HEIGHT / 4);
+	//player1.setVelocity(VECTOR2(shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
+															   
 
 	return;
 }
@@ -71,7 +64,7 @@ void Spacewar::initialize(HWND hwnd)
 void Spacewar::update()
 {
 	planet.update(frameTime);
-	ship1.update(frameTime);
+	player1.update(frameTime);
 	ship2.update(frameTime);
 }
 
