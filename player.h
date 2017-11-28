@@ -3,8 +3,8 @@
 // Charles Kelly
 // Chapter 6 ship.h v1.0
 
-#ifndef _SHIP_H                 // Prevent multiple definitions if this 
-#define _SHIP_H                 // file is included in more than one place
+#ifndef _PLAYER_H                 // Prevent multiple definitions if this 
+#define _PLAYER_H                 // file is included in more than one place
 #define WIN32_LEAN_AND_MEAN
 
 #include "entity.h"
