@@ -10,7 +10,7 @@
 //=============================================================================
 player::player() : Entity()
 {
-	spriteData.width = playerNS::WIDTH;           // size of Ship1
+	spriteData.width = playerNS::WIDTH;        // size of Ship1
 	spriteData.height = playerNS::HEIGHT;
 	spriteData.x = playerNS::X;                   // location on screen
 	spriteData.y = playerNS::Y;
@@ -23,9 +23,9 @@ player::player() : Entity()
 	endFrame = playerNS::PLAYER_END_FRAME;     // last frame of ship animation
 	currentFrame = startFrame;
 	radius = playerNS::WIDTH / 2.0;
-	shieldOn = false;
+
 	mass = playerNS::MASS;
-	collisionType = entityNS::CIRCLE;
+	collisionType = entityNS::BOX;
 }
 
 //=============================================================================
@@ -35,6 +35,7 @@ player::player() : Entity()
 bool player::initialize(Game *gamePtr, int width, int height, int ncols,
 	TextureManager *textureM)
 {
+	
 	shield.initialize(gamePtr->getGraphics(), width, height, ncols, textureM);
 	shield.setFrames(shipNS::SHIELD_START_FRAME, shipNS::SHIELD_END_FRAME);
 	shield.setCurrentFrame(shipNS::SHIELD_START_FRAME);
