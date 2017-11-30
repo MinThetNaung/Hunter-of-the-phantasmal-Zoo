@@ -85,7 +85,10 @@ void player::update(float frameTime)
 	{
 		spriteData.y + frameTime * 32;
 	}
-
+	if (input->isKeyDown(VK_ACCEPT))           // if move down
+	{
+		
+	}
 
 
 

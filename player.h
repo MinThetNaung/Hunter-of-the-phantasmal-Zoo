@@ -20,14 +20,14 @@ namespace playerNS
 	const float SPEED = 100;                // 100 pixels per second
 	const float MASS = 300.0f;              // mass
 	const int   TEXTURE_COLS = 8;           // texture has 8 columns
-	const int   Player_START_FRAME = 0;      // ship1 starts at frame 0
-	const int   SHIP1_END_FRAME = 3;        // ship1 animation frames 0,1,2,3
-	const int   SHIP2_START_FRAME = 8;      // ship2 starts at frame 8
-	const int   SHIP2_END_FRAME = 11;       // ship2 animation frames 8,9,10,11
-	const float SHIP_ANIMATION_DELAY = 0.2f;    // time between frames
-	const int   SHIELD_START_FRAME = 24;    // shield start frame
-	const int   SHIELD_END_FRAME = 27;      // shield end frame
-	const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
+	const int   PLAYER_START_FRAME = 0;      // ship1 starts at frame 0
+	const int   PLAYER_END_FRAME = 3;        // ship1 animation frames 0,1,2,3
+	//const int   PLAYER_START_FRAME = 8;      // ship2 starts at frame 8
+	//const int   PLAYER_END_FRAME = 11;       // ship2 animation frames 8,9,10,11
+	const float PLAYER_ANIMATION_DELAY = 0.2f;    // time between frames
+	//const int   SHIELD_START_FRAME = 24;    // shield start frame
+	//const int   SHIELD_END_FRAME = 27;      // shield end frame
+	//const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
 }
 
 // inherits from Entity class
