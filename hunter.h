@@ -28,10 +28,10 @@ private:
 	Sword hunterSword;
 public:
 	// Constructor
-	hunter();
+	Hunter();
 
 	// Destructor
-	virtual ~hunter();
+	virtual ~Hunter();
 
 	// Initialize the game
 	void initialize(HWND hwnd);
@@ -41,8 +41,7 @@ public:
 	void render();      // "
 	void releaseAll();
 	void resetAll();
-	hunter();
+	
 };
 
 #endif
-#pragma once
