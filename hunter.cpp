@@ -52,6 +52,7 @@ void Hunter::initialize(HWND hwnd)
 	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
 	player1.setX(GAME_WIDTH / 4);
 	player1.setY(GAME_HEIGHT / 4);
+	hunterSword.setdamage(2); // set the starting damage to the sword
 	//player1.setVelocity(VECTOR2(shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
 															   
 
@@ -65,7 +66,7 @@ void Hunter::update()
 {
 	planet.update(frameTime);
 	player1.update(frameTime);
-	ship2.update(frameTime);
+	
 }
 
 //=============================================================================
@@ -114,8 +115,8 @@ void Hunter::render()
 
 	nebula.draw();                          // add the orion nebula to the scene
 	planet.draw();                          // add the planet to the scene
-	ship1.draw();                           // add the spaceship to the scene
-	ship2.draw();                           // add the spaceship to the scene
+	player1.draw();                           // add the player to the scene
+
 
 	graphics->spriteEnd();                  // end drawing sprites
 }

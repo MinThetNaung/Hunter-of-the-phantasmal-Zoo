@@ -16,4 +16,5 @@ public:
 		TextureManager *textureM);
 	void update(float frameTime);
 	void damage(WEAPON);
+	float setdamage(float d);
 };

@@ -12,7 +12,7 @@
 #include "image.h"
 #include "planet.h"
 #include "player.h"
-
+#include "sword.h"
 //=============================================================================
 // This class is the core of the game
 //=============================================================================
@@ -25,7 +25,7 @@ private:
 	player    player1;           // player
 	Planet  planet;         // the planet
 	Image   nebula;         // backdrop image
-
+	Sword hunterSword;
 public:
 	// Constructor
 	hunter();
