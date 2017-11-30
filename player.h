@@ -10,6 +10,7 @@
 #include "entity.h"
 #include "constants.h"
 
+
 namespace playerNS
 {
 	const int WIDTH = 32;                   // image width
@@ -19,8 +20,8 @@ namespace playerNS
 	//const float ROTATION_RATE = (float)PI / 4; // radians per second
 	const float SPEED = 100;                // 100 pixels per second
 	const float MASS = 300.0f;              // mass
-	const int   TEXTURE_COLS = 8;           // texture has 8 columns
-	const int   PLAYER_START_FRAME = 0;      // ship1 starts at frame 0
+	const int   TEXTURE_COLS = 12;           // texture has 8 columns
+	const int   PLAYER_START_FRAME = 50;      // ship1 starts at frame 0
 	const int   PLAYER_END_FRAME = 3;        // ship1 animation frames 0,1,2,3
 	//const int   PLAYER_START_FRAME = 8;      // ship2 starts at frame 8
 	//const int   PLAYER_END_FRAME = 11;       // ship2 animation frames 8,9,10,11

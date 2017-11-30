@@ -9,4 +9,5 @@ Sword::Sword() : Entity()
 float Sword::setdamage(float d) 
 {
 	Damage = d;
+	return Damage;
 }

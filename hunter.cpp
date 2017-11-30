@@ -82,7 +82,7 @@ void Hunter::collisions()
 {
 	VECTOR2 collisionVector;
 	// if collision between ship and planet
-	if (ship1.collidesWith(planet, collisionVector))
+	/*if (ship1.collidesWith(planet, collisionVector))
 	{
 		// bounce off planet
 		ship1.bounce(collisionVector, planet);
@@ -103,7 +103,7 @@ void Hunter::collisions()
 		// change the direction of the collisionVector for ship2
 		ship2.bounce(collisionVector*-1, ship1);
 		ship2.damage(SHIP);
-	}
+	}*/
 }
 
 //=============================================================================

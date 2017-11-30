@@ -36,11 +36,11 @@ bool player::initialize(Game *gamePtr, int width, int height, int ncols,
 	TextureManager *textureM)
 {
 	
-	shield.initialize(gamePtr->getGraphics(), width, height, ncols, textureM);
-	shield.setFrames(shipNS::SHIELD_START_FRAME, shipNS::SHIELD_END_FRAME);
-	shield.setCurrentFrame(shipNS::SHIELD_START_FRAME);
-	shield.setFrameDelay(shipNS::SHIELD_ANIMATION_DELAY);
-	shield.setLoop(false);                  // do not loop animation
+	//shield.initialize(gamePtr->getGraphics(), width, height, ncols, textureM);
+	//shield.setFrames(shipNS::SHIELD_START_FRAME, shipNS::SHIELD_END_FRAME);
+	//shield.setCurrentFrame(shipNS::SHIELD_START_FRAME);
+	//shield.setFrameDelay(shipNS::SHIELD_ANIMATION_DELAY);
+	//shield.setLoop(false);                  // do not loop animation
 	return(Entity::initialize(gamePtr, width, height, ncols, textureM));
 }
 
@@ -50,9 +50,9 @@ bool player::initialize(Game *gamePtr, int width, int height, int ncols,
 void player::draw()
 {
 	Image::draw();              // draw ship
-	if (shieldOn)
+	//if (shieldOn)
 		// draw shield using colorFilter 50% alpha
-		shield.draw(spriteData, graphicsNS::ALPHA50 & colorFilter);
+		//shield.draw(spriteData, graphicsNS::ALPHA50 & colorFilter);
 }
 
 //=============================================================================
@@ -99,24 +99,24 @@ void player::update(float frameTime)
 	if (spriteData.x > GAME_WIDTH - playerNS::WIDTH)    // if hit right screen edge
 	{
 		spriteData.x = GAME_WIDTH - playerNS::WIDTH;    // position at right screen edge
-		velocity.x = -velocity.x;                   // reverse X direction
+		//velocity.x = -velocity.x;                   // reverse X direction
 	}
 	else if (spriteData.x < 0)                    // else if hit left screen edge
 	{
 		spriteData.x = 0;                           // position at left screen edge
-		velocity.x = -velocity.x;                   // reverse X direction
+		//velocity.x = -velocity.x;                   // reverse X direction
 	}
 	if (spriteData.y > GAME_HEIGHT - playerNS::HEIGHT)  // if hit bottom screen edge
 	{
 		spriteData.y = GAME_HEIGHT - playerNS::HEIGHT;  // position at bottom screen edge
-		velocity.y = -velocity.y;                   // reverse Y direction
+		//velocity.y = -velocity.y;                   // reverse Y direction
 	}
 	else if (spriteData.y < 0)                    // else if hit top screen edge
 	{
 		spriteData.y = 0;                           // position at top screen edge
-		velocity.y = -velocity.y;                   // reverse Y direction
+		//velocity.y = -velocity.y;                   // reverse Y direction
 	}
-	if (shieldOn)
+	/*if (shieldOn)
 	{
 		shield.update(frameTime);
 		if (shield.getAnimationComplete())
@@ -124,7 +124,7 @@ void player::update(float frameTime)
 			shieldOn = false;
 			shield.setAnimationComplete(false);
 		}
-	}
+	}*/
 }
 
 //=============================================================================
@@ -132,6 +132,6 @@ void player::update(float frameTime)
 //=============================================================================
 void player::damage(WEAPON weapon)
 {
-	shieldOn = true;
+	//shieldOn = true;
 }
 
