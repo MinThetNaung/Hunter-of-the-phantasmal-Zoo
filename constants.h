@@ -30,8 +30,8 @@
 //-----------------------------------------------
 
 // window
-const char CLASS_NAME[] = "Spacewar";
-const char GAME_TITLE[] = "Spacewar";
+const char CLASS_NAME[] = "Hunter of the phantasmal zoo";
+const char GAME_TITLE[] = "Hunter of the phantasmal zoo";
 const bool FULLSCREEN = false;              // windowed or fullscreen
 const UINT GAME_WIDTH = 640;               // width of game in pixels
 const UINT GAME_HEIGHT = 480;               // height of game in pixels
@@ -45,7 +45,7 @@ const float MAX_FRAME_TIME = 1.0f / MIN_FRAME_RATE; // maximum time used in calc
 //const float GRAVITY = 6.67428e-11f;             // gravitational constant
 //const float MASS_PLANET = 1.0e14f;
 //const float MASS_SHIP = 5.0f;
-
+const float Tilesize = 32;
 // graphic images
 const char NEBULA_IMAGE[] = "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
 const char TEXTURES_IMAGE[] = "pictures\\textures.png";  // game textures

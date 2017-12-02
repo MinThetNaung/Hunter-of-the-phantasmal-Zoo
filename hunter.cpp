@@ -33,21 +33,21 @@ void Hunter::initialize(HWND hwnd)
 	if (!nebulaTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula texture"));
 
-	// main game textures
-	if (!gameTextures.initialize(graphics, TEXTURES_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing game textures"));
+	// charactors textures
+	if (!characterTextures.initialize(graphics, CHARACTERS_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing charactors textures"));
 
 	// nebula image
 	if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula"));
 
 	// planet
-	if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing planet"));
+	//if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
+		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing planet"));
 
 	// player
-	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &gameTextures))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing ship1"));
+	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &characterTextures))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
 	player1.setFrames(playerNS::PLAYER_START_FRAME, playerNS::PLAYER_END_FRAME);
 	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
 	player1.setX(GAME_WIDTH / 4);
@@ -128,7 +128,7 @@ void Hunter::render()
 void Hunter::releaseAll()
 {
 	nebulaTexture.onLostDevice();
-	gameTextures.onLostDevice();
+	characterTextures.onLostDevice();
 	Game::releaseAll();
 	return;
 }
@@ -139,7 +139,7 @@ void Hunter::releaseAll()
 //=============================================================================
 void Hunter::resetAll()
 {
-	gameTextures.onResetDevice();
+	characterTextures.onResetDevice();
 	nebulaTexture.onResetDevice();
 	Game::resetAll();
 	return;
