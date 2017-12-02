@@ -36,6 +36,9 @@ void Hunter::initialize(HWND hwnd)
 	// charactors textures
 	if (!characterTextures.initialize(graphics, CHARACTERS_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing charactors textures"));
+	// weapons textures
+	if (!weaponTextures.initialize(graphics, WEAPON_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing charactors textures"));
 
 	// nebula image
 	if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
@@ -44,7 +47,9 @@ void Hunter::initialize(HWND hwnd)
 	// planet
 	//if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
 		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing planet"));
-
+	// sword
+	if (!hunterSword.initialize(this, swordNS::WIDTH, swordNS::HEIGHT, swordNS::TEXTURE_COLS, &weaponTextures))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
 	// player
 	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &characterTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));

@@ -21,7 +21,8 @@ class Hunter : public Game
 private:
 	// game items
 	TextureManager nebulaTexture;   // nebula texture
-	TextureManager characterTextures;    // game texture
+	TextureManager characterTextures;    // character texture
+	TextureManager weaponTextures;    // weapon texture
 	player    player1;           // player
 	Planet  planet;         // the planet
 	Image   nebula;         // backdrop image
