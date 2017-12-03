@@ -71,28 +71,29 @@ void player::update(float frameTime)
 
 	if (input->isKeyDown(VK_RIGHT))           // if move right
 	{
-		(spriteData.x + (frameTime * Tilesize));
+		(spriteData.x += (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERRIGHT_START_FRAME;
 		endFrame = playerNS::PLAYERRIGHT_END_FRAME;
 		
 	}
-	if (input->isKeyDown(VK_LEFT))           // if move left
+	else if (input->isKeyDown(VK_LEFT))           // if move left
 	{
-		(spriteData.x - (frameTime * Tilesize));
+		(spriteData.x -= (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERLEFT_START_FRAME;     
 		endFrame = playerNS::PLAYERLEFT_END_FRAME;
 	}
-	if (input->isKeyDown(VK_UP))           // if move up
+	else if (input->isKeyDown(VK_UP))           // if move up
 	{
-		(spriteData.y - (frameTime * Tilesize));
+		(spriteData.y -= (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERUP_START_FRAME;
 		endFrame = playerNS::PLAYERUP_END_FRAME;
 	}
-	if (input->isKeyDown(VK_DOWN))           // if move down
+	else if (input->isKeyDown(VK_DOWN))           // if move down
 	{
-		(spriteData.y + (frameTime * Tilesize));
+		(spriteData.y += (frameTime * Tilesize));
 		startFrame = playerNS::PLAYER_START_FRAME;
 		endFrame = playerNS::PLAYER_END_FRAME;
+
 	}
 	
 
