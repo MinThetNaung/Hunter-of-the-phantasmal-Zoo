@@ -24,6 +24,9 @@ void Sword::update(float frameTime)
 {
 
 }
+void Sword::damage(WEAPON)
+{
+}
 void Sword::draw()
 {
 	Image::draw();              

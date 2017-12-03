@@ -94,10 +94,7 @@ void player::update(float frameTime)
 		startFrame = playerNS::PLAYER_START_FRAME;
 		endFrame = playerNS::PLAYER_END_FRAME;
 	}
-	if (input->isKeyDown(VK_ACCEPT))           // if move down
-	{
-		
-	}
+	
 
 
 

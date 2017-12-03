@@ -30,26 +30,24 @@ void Hunter::initialize(HWND hwnd)
 	Game::initialize(hwnd); // throws GameError
 
 							// nebula texture
-	if (!nebulaTexture.initialize(graphics, NEBULA_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula texture"));
+	//if (!nebulaTexture.initialize(graphics, NEBULA_IMAGE))
+		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula texture"));
 
 	// charactors textures
 	if (!characterTextures.initialize(graphics, CHARACTERS_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing charactors textures"));
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing characters textures"));
 	// weapons textures
 	if (!weaponTextures.initialize(graphics, WEAPON_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing charactors textures"));
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing weapons textures"));
 
 	// nebula image
-	if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula"));
+	//if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
+		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula"));
 
 	// planet
 	//if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
 		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing planet"));
-	// sword
-	if (!hunterSword.initialize(this, swordNS::WIDTH, swordNS::HEIGHT, swordNS::TEXTURE_COLS, &weaponTextures))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
+	
 	// player
 	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &characterTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
@@ -57,9 +55,16 @@ void Hunter::initialize(HWND hwnd)
 	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
 	player1.setX(GAME_WIDTH / 4);
 	player1.setY(GAME_HEIGHT / 4);
-	hunterSword.setdamage(2); // set the starting damage to the sword
+	
 	//player1.setVelocity(VECTOR2(shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
-															   
+	// sword
+	if (!hunterSword.initialize(this, swordNS::WIDTH, swordNS::HEIGHT, swordNS::TEXTURE_COLS, &weaponTextures))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
+	hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+	hunterSword.setCurrentFrame(swordNS::SWORD_START_FRAME);
+	hunterSword.setX(player1.getX() + Tilesize);
+	hunterSword.setY(player1.getY() + Tilesize);
+	hunterSword.setdamage(2);// set the starting damage to the sword
 
 	return;
 }
@@ -118,10 +123,10 @@ void Hunter::render()
 {
 	graphics->spriteBegin();                // begin drawing sprites
 
-	nebula.draw();                          // add the orion nebula to the scene
-	planet.draw();                          // add the planet to the scene
+	//nebula.draw();                          // add the orion nebula to the scene
+	//planet.draw();                          // add the planet to the scene
 	player1.draw();                           // add the player to the scene
-
+	hunterSword.draw();
 
 	graphics->spriteEnd();                  // end drawing sprites
 }
@@ -134,6 +139,7 @@ void Hunter::releaseAll()
 {
 	nebulaTexture.onLostDevice();
 	characterTextures.onLostDevice();
+	weaponTextures.onLostDevice();
 	Game::releaseAll();
 	return;
 }
@@ -146,6 +152,7 @@ void Hunter::resetAll()
 {
 	characterTextures.onResetDevice();
 	nebulaTexture.onResetDevice();
+	weaponTextures.onResetDevice();
 	Game::resetAll();
 	return;
 }

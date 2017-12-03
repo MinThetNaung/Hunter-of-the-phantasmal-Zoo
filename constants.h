@@ -45,7 +45,7 @@ const float MAX_FRAME_TIME = 1.0f / MIN_FRAME_RATE; // maximum time used in calc
 //const float GRAVITY = 6.67428e-11f;             // gravitational constant
 //const float MASS_PLANET = 1.0e14f;
 //const float MASS_SHIP = 5.0f;
-const float Tilesize = 32;
+const float Tilesize = 48;
 // graphic images
 const char NEBULA_IMAGE[] = "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
 const char TEXTURES_IMAGE[] = "pictures\\textures.png";  // game textures

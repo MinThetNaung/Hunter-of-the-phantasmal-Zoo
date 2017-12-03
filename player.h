@@ -13,22 +13,22 @@
 
 namespace playerNS
 {
-	const int WIDTH = 32;                   // image width
-	const int HEIGHT = 32;                  // image height
+	const int WIDTH = 48;                   // image width
+	const int HEIGHT = 48;                  // image height
 	const int X = GAME_WIDTH / 2 - WIDTH / 2;   // location on screen
 	const int Y = GAME_HEIGHT / 2 - HEIGHT / 2;
 	//const float ROTATION_RATE = (float)PI / 4; // radians per second
 	const float SPEED = 100;                // 100 pixels per second
 	const float MASS = 300.0f;              // mass
 	const int   TEXTURE_COLS = 12;           // texture has 8 columns
-	const int   PLAYER_START_FRAME = 49;      // player down start
-	const int   PLAYER_END_FRAME = 51;        // Player down end
-	const int   PLAYERUP_START_FRAME = 85;      // player up start
-	const int   PLAYERUP_END_FRAME = 97;        // Player up end
-	const int   PLAYERLEFT_START_FRAME = 61;      // player  left start
-	const int   PLAYERLEFT_END_FRAME = 63;        // Player left end
-	const int   PLAYERRIGHT_START_FRAME = 73;      // player right start
-	const int   PLAYERRIGHT_END_FRAME = 75;        // Player right end
+	const int   PLAYER_START_FRAME = 48;      // player down start
+	const int   PLAYER_END_FRAME = 50;        // Player down end
+	const int   PLAYERUP_START_FRAME = 84;      // player up start
+	const int   PLAYERUP_END_FRAME = 86;        // Player up end
+	const int   PLAYERLEFT_START_FRAME = 60;      // player  left start
+	const int   PLAYERLEFT_END_FRAME = 62;        // Player left end
+	const int   PLAYERRIGHT_START_FRAME = 72;      // player right start
+	const int   PLAYERRIGHT_END_FRAME = 74;        // Player right end
 	//const int   PLAYER_START_FRAME = 8;      // ship2 starts at frame 8
 	//const int   PLAYER_END_FRAME = 11;       // ship2 animation frames 8,9,10,11
 	const float PLAYER_ANIMATION_DELAY = 0.2f;    // time between frames
