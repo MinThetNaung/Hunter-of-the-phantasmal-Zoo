@@ -50,7 +50,7 @@ const float Tilesize = 48;
 const char NEBULA_IMAGE[] = "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
 const char TEXTURES_IMAGE[] = "pictures\\textures.png";  // game textures
 const char CHARACTERS_IMAGE[] = "img\\characters\\Actor1.png";
-const char WEAPON_IMAGE[] = "img\\system\\Weapons1.png";
+const char WEAPON_IMAGE[] = "img\\system\\sword.png";
 														 // key mappings
 														 // In this game simple constants are used for key mappings. If variables were used
 														 // it would be possible to save and restore key mappings from a data file.

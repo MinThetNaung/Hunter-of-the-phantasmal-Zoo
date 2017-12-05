@@ -44,6 +44,7 @@ private:
 	
 	float MaxHealth;
 	Entity Invenarray[10]; 
+
 public:
 	// constructor
 	player();

@@ -55,6 +55,7 @@ void Hunter::initialize(HWND hwnd)
 	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
 	player1.setX(GAME_WIDTH / 4);
 	player1.setY(GAME_HEIGHT / 4);
+	//player1.setLoop(false);
 	
 	//player1.setVelocity(VECTOR2(shipNS::SPEED, -shipNS::SPEED)); // VECTOR2(X, Y)
 	// sword
@@ -65,7 +66,7 @@ void Hunter::initialize(HWND hwnd)
 	hunterSword.setX(player1.getX() + Tilesize);
 	hunterSword.setY(player1.getY() + Tilesize);
 	hunterSword.setdamage(2);// set the starting damage to the sword
-
+	hunterSword.setLoop(false);
 	return;
 }
 
@@ -76,6 +77,7 @@ void Hunter::update()
 {
 	planet.update(frameTime);
 	player1.update(frameTime);
+	hunterSword.update(frameTime);
 	
 }
 

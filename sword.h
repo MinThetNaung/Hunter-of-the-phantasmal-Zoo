@@ -8,9 +8,9 @@ namespace swordNS
 	const int HEIGHT = 48;                  // image height
 	const int X = GAME_WIDTH / 2 - WIDTH / 2;   // location on screen
 	const int Y = GAME_HEIGHT / 2 - HEIGHT / 2;
-	const int   TEXTURE_COLS = 6;
-	const int   SWORD_START_FRAME = 7;      // player down start
-	const int   SWORD_END_FRAME = 9;
+	const int   TEXTURE_COLS = 3;
+	const int   SWORD_START_FRAME = 0;      // player down start
+	const int   SWORD_END_FRAME = 3;
 	const float SWORD_ANIMATION_DELAY = 0.2f;
 }
 class Sword : public Entity

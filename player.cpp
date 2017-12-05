@@ -81,6 +81,7 @@ void player::update(float frameTime)
 		(spriteData.x -= (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERLEFT_START_FRAME;     
 		endFrame = playerNS::PLAYERLEFT_END_FRAME;
+		
 	}
 	else if (input->isKeyDown(VK_UP))           // if move up
 	{
@@ -93,7 +94,7 @@ void player::update(float frameTime)
 		(spriteData.y += (frameTime * Tilesize));
 		startFrame = playerNS::PLAYER_START_FRAME;
 		endFrame = playerNS::PLAYER_END_FRAME;
-
+		
 	}
 	
 
