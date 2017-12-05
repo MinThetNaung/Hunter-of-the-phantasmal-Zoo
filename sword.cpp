@@ -23,6 +23,7 @@ float Sword::setdamage(float d)
 void Sword::update(float frameTime)
 {
 	Entity::update(frameTime);
+
 }
 void Sword::damage(WEAPON)
 {

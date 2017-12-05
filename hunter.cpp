@@ -51,7 +51,7 @@ void Hunter::initialize(HWND hwnd)
 	// player
 	if (!player1.initialize(this, playerNS::WIDTH, playerNS::HEIGHT, playerNS::TEXTURE_COLS, &characterTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
-	player1.setFrames(playerNS::PLAYER_START_FRAME, playerNS::PLAYER_END_FRAME);
+	//player1.setFrames(playerNS::PLAYER_START_FRAME, playerNS::PLAYER_END_FRAME);
 	player1.setCurrentFrame(playerNS::PLAYER_START_FRAME);
 	player1.setX(GAME_WIDTH / 4);
 	player1.setY(GAME_HEIGHT / 4);
@@ -61,7 +61,7 @@ void Hunter::initialize(HWND hwnd)
 	// sword
 	if (!hunterSword.initialize(this, swordNS::WIDTH, swordNS::HEIGHT, swordNS::TEXTURE_COLS, &weaponTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
-	hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+	
 	hunterSword.setCurrentFrame(swordNS::SWORD_START_FRAME);
 	hunterSword.setX(player1.getX() + Tilesize);
 	hunterSword.setY(player1.getY() + Tilesize);
@@ -76,9 +76,37 @@ void Hunter::initialize(HWND hwnd)
 void Hunter::update()
 {
 	planet.update(frameTime);
-	player1.update(frameTime);
+	//player1.update(frameTime);
 	hunterSword.update(frameTime);
-	
+
+	if (input->isKeyDown(VK_RIGHT))           // if move right
+	{
+		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		player1.update(frameTime);
+
+	}
+	else if (input->isKeyDown(VK_LEFT))           // if move left
+	{
+		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		player1.update(frameTime);
+	}
+	else if (input->isKeyDown(VK_UP))           // if move up
+	{
+		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		player1.update(frameTime);
+	}
+	else if (input->isKeyDown(VK_DOWN))           // if move down
+	{
+		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		player1.update(frameTime);
+
+	}
+	if (input->isKeyDown(VK_ACCEPT))           // if move right
+	{
+		hunterSword.setX(player1.getX() + Tilesize);
+		hunterSword.setY(player1.getY() + Tilesize);
+	}
+
 }
 
 //=============================================================================
