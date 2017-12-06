@@ -160,7 +160,7 @@ void Hunter::render()
 		hunterSword.draw();
 		if (hunterSword.getCurrentFrame() == swordNS::SWORD_END_FRAME)
 		{
-			player1.interact = false;
+			//player1.interact = false;
 			hunterSword.setCurrentFrame(swordNS::SWORD_START_FRAME);
 		}
 	}
