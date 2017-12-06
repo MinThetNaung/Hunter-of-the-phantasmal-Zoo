@@ -75,6 +75,7 @@ void Hunter::initialize(HWND hwnd)
 //=============================================================================
 void Hunter::update()
 {
+	//test
 	planet.update(frameTime);
 	//player1.update(frameTime);
 	hunterSword.update(frameTime);
