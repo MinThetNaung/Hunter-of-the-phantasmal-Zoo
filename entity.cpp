@@ -402,10 +402,10 @@ void Entity::bounce(VECTOR2 &collisionVector, Entity &ent)
 	VECTOR2 cUV = collisionVector;              // collision unit vector
 	Graphics::Vector2Normalize(&cUV);
 	float cUVdotVdiff = Graphics::Vector2Dot(&cUV, &Vdiff);
-	float massRatio = 2.0f;
-	if (getMass() != 0)
-		massRatio *= (ent.getMass() / (getMass() + ent.getMass()));
-
+	float massRatio = 48.0f;
+	//if (getMass() != 0)
+		//massRatio *= (ent.getMass() / (getMass() + ent.getMass()));
+		
 	// If entities are already moving apart then bounce must
 	// have been previously called and they are still colliding.
 	// Move entities apart along collisionVector

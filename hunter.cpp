@@ -115,6 +115,7 @@ void Hunter::ai()
 void Hunter::collisions()
 {
 	VECTOR2 collisionVector;
+	if (hunterSword.collidesWith(enemy,collisionVector))
 	// if collision between ship and planet
 	/*if (ship1.collidesWith(planet, collisionVector))
 	{

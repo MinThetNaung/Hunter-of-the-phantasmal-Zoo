@@ -1,3 +1,8 @@
+//  Module:             Gameplay Programming
+//  Assignment1:        Hunter of the phantasmal zoo
+//  Student Name:       Bryan Boh, 
+//  Student Number:     S10171537F, 
+
 #include "sword.h"
 
 
