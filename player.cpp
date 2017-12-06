@@ -4,12 +4,14 @@
 // Chapter 6 ship.cpp v1.0
 
 #include "player.h"
+using namespace playerNS;
 //test
 //=============================================================================
 // default constructor
 //=============================================================================
 player::player() : Entity()
 {
+	
 	spriteData.width = playerNS::WIDTH;        // size of Ship1
 	spriteData.height = playerNS::HEIGHT;
 	spriteData.x = playerNS::X;                   // location on screen
@@ -23,7 +25,7 @@ player::player() : Entity()
 	endFrame = playerNS::PLAYER_END_FRAME;     // last frame of ship animation
 	currentFrame = startFrame;
 	radius = playerNS::WIDTH / 2.0;
-
+	direction = DOWN;
 	mass = playerNS::MASS;
 	collisionType = entityNS::BOX;
 }
@@ -74,30 +76,37 @@ void player::update(float frameTime)
 		(spriteData.x += (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERRIGHT_START_FRAME;
 		endFrame = playerNS::PLAYERRIGHT_END_FRAME;
-		
+		direction = RIGHT;
 	}
 	else if (input->isKeyDown(VK_LEFT))           // if move left
 	{
 		(spriteData.x -= (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERLEFT_START_FRAME;     
 		endFrame = playerNS::PLAYERLEFT_END_FRAME;
-		
+		direction = LEFT;
 	}
 	else if (input->isKeyDown(VK_UP))           // if move up
 	{
 		(spriteData.y -= (frameTime * Tilesize));
 		startFrame = playerNS::PLAYERUP_START_FRAME;
 		endFrame = playerNS::PLAYERUP_END_FRAME;
+		direction = UP;
 	}
 	else if (input->isKeyDown(VK_DOWN))           // if move down
 	{
 		(spriteData.y += (frameTime * Tilesize));
 		startFrame = playerNS::PLAYER_START_FRAME;
 		endFrame = playerNS::PLAYER_END_FRAME;
-		
+		direction = DOWN;
 	}
-	
-
+	if (interact = false)
+	{
+		if (input->isKeyDown(VK_SPACE))           // if move right
+		{
+			Getplayerlocation();
+			interact = true;
+		}
+	}
 
 
 
@@ -142,4 +151,30 @@ void player::damage(WEAPON weapon)
 {
 	//shieldOn = true;
 }
+float player::Getplayerlocation()
+{
+	
+	if (direction == UP)
+	{
+		PositionX = spriteData.x;
+		PositionY = spriteData.y - 48;
+	}
+	if (direction == DOWN)
+	{
+		PositionX = spriteData.x;
+		PositionY = spriteData.y + 48;
+	}
+	if (direction == RIGHT)
+	{
+		PositionX = spriteData.x + 48;
+		PositionY = spriteData.y;
+	}
+	if (direction == DOWN)
+	{
+		PositionX = spriteData.x - 48;
+		PositionY = spriteData.y;
+	}
+	return PositionX, PositionY;
 
+
+}

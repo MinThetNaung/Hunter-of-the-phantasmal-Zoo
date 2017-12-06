@@ -61,12 +61,11 @@ void Hunter::initialize(HWND hwnd)
 	// sword
 	if (!hunterSword.initialize(this, swordNS::WIDTH, swordNS::HEIGHT, swordNS::TEXTURE_COLS, &weaponTextures))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player"));
-	
+	hunterSword.setFrames(swordNS::SWORD_START_FRAME,swordNS::SWORD_END_FRAME);
 	hunterSword.setCurrentFrame(swordNS::SWORD_START_FRAME);
-	hunterSword.setX(player1.getX() + Tilesize);
-	hunterSword.setY(player1.getY() + Tilesize);
+
+	//hunterSword.setColorFilter(SETCOLOR_ARGB(255, 230, 230, 255));
 	hunterSword.setdamage(2);// set the starting damage to the sword
-	hunterSword.setLoop(false);
 	return;
 }
 
@@ -81,31 +80,26 @@ void Hunter::update()
 
 	if (input->isKeyDown(VK_RIGHT))           // if move right
 	{
-		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
 
 	}
 	else if (input->isKeyDown(VK_LEFT))           // if move left
 	{
-		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
 	}
 	else if (input->isKeyDown(VK_UP))           // if move up
 	{
-		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
 	}
 	else if (input->isKeyDown(VK_DOWN))           // if move down
 	{
-		hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
+		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
+	}
 
-	}
-	if (input->isKeyDown(VK_ACCEPT))           // if move right
-	{
-		hunterSword.setX(player1.getX() + Tilesize);
-		hunterSword.setY(player1.getY() + Tilesize);
-	}
 
 }
 
@@ -156,10 +150,23 @@ void Hunter::render()
 	//nebula.draw();                          // add the orion nebula to the scene
 	//planet.draw();                          // add the planet to the scene
 	player1.draw();                           // add the player to the scene
-	hunterSword.draw();
+
+	//hunterSword.draw();
+	if (player1.interact == true)
+	{
+		hunterSword.setX(player1.PositionX);
+		hunterSword.setY(player1.PositionY);
+		hunterSword.draw();
+		if (hunterSword.getCurrentFrame() == 4)
+		{
+			player1.interact = false;
+			hunterSword.setCurrentFrame(0);
+		}
+	}
+	
 
 	graphics->spriteEnd();                  // end drawing sprites
-}
+ }
 
 //=============================================================================
 // The graphics device was lost.

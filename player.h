@@ -17,6 +17,7 @@ namespace playerNS
 	const int HEIGHT = 48;                  // image height
 	const int X = GAME_WIDTH / 2 - WIDTH / 2;   // location on screen
 	const int Y = GAME_HEIGHT / 2 - HEIGHT / 2;
+
 	//const float ROTATION_RATE = (float)PI / 4; // radians per second
 	const float SPEED = 100;                // 100 pixels per second
 	const float MASS = 300.0f;              // mass
@@ -35,6 +36,7 @@ namespace playerNS
 	//const int   SHIELD_START_FRAME = 24;    // shield start frame
 	//const int   SHIELD_END_FRAME = 27;      // shield end frame
 	//const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
+	enum DIRECTION {LEFT, RIGHT, UP, DOWN};
 }
 
 // inherits from Entity class
@@ -44,17 +46,21 @@ private:
 	
 	float MaxHealth;
 	Entity Invenarray[10]; 
-
+	
 public:
 	// constructor
 	player();
-	
+	playerNS::DIRECTION direction;
 	// inherited member functions
 	virtual void draw();
 	virtual bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
 	void update(float frameTime);
 	void damage(WEAPON);
+	float player::Getplayerlocation();
+	bool interact = true;
+	float PositionX = 0; // For Skills that activates in front of the player
+	float PositionY = 0;
 };
 #endif
 
