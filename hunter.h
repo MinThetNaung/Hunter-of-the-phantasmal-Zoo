@@ -13,6 +13,7 @@
 #include "planet.h"
 #include "player.h"
 #include "sword.h"
+#include "enemy.h"
 //=============================================================================
 // This class is the core of the game
 //=============================================================================
@@ -23,10 +24,12 @@ private:
 	TextureManager nebulaTexture;   // nebula texture
 	TextureManager characterTextures;    // character texture
 	TextureManager weaponTextures;    // weapon texture
+	TextureManager enemyTextures;
 	player    player1;           // player
 	//Planet  planet;         // the planet
 	Image   nebula;         // backdrop image
 	Sword hunterSword;
+	Enemy enemy;
 public:
 	// Constructor
 	Hunter();

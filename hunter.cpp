@@ -67,6 +67,18 @@ void Hunter::initialize(HWND hwnd)
 	//hunterSword.setColorFilter(SETCOLOR_ARGB(255, 230, 230, 255));
 	hunterSword.setdamage(2);// set the starting damage to the sword
 	return;
+
+
+	// enemy
+	if (!enemy.initialize(this, enemyNS::WIDTH, enemyNS::HEIGHT, enemyNS::TEXTURE_COLS, &enemyTextures))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing spider"));
+	enemy.setFrames(enemyNS::ENEMY_START_FRAME, enemyNS::ENEMY_END_FRAME);
+	enemy.setCurrentFrame(enemyNS::ENEMY_START_FRAME);
+	enemy.setColorFilter(SETCOLOR_ARGB(255, 230, 230, 255));   // light blue, used for shield and torpedo
+	enemy.setMass(enemyNS::MASS);
+	// Start spider in the middle of left
+	enemy.setX(GAME_WIDTH / 4 - enemyNS::WIDTH);
+	enemy.setY(GAME_HEIGHT / 4 - enemyNS::HEIGHT);
 }
 
 //=============================================================================
@@ -101,6 +113,39 @@ void Hunter::update()
 	}
 	//hunterSword.update(frameTime);
 
+	/*/ enemy
+	float enemyX;
+
+	enemy.update(frameTime);			// move the enemy
+
+	enemyX = enemy.getX();
+	if (enemyX < 0)                  // if enemy off screen left
+	{
+	mapX -= enemy.getVelocity().x * frameTime;  // scroll map right
+	enemy.setX(0);              // put enemy at left edge
+	}
+	// if enemy off screen right
+	else if (enemyX > GAME_WIDTH - enemy.getWidth())
+	{
+	mapX -= enemy.getVelocity().x * frameTime;  // scroll map left
+	// put enemy at right edge
+	enemy.setX((float)(GAME_WIDTH - enemy.getWidth()));
+	}
+
+	if (mapX > 0)    // if map past left edge
+	{
+	mapX = 0;   // stop at left edge of map
+	enemy.setVelocityX(0);  // stop enemy
+	}
+	// if map past right edge
+	else if (mapX < (-MAP_WIDTH * TEXTURE_SIZE) + GAME_WIDTH)
+	{
+	// stop at right edge of map
+	mapX = (-MAP_WIDTH * TEXTURE_SIZE) + GAME_WIDTH;
+	enemy.setVelocityX(0);  // stop spider
+	}*/
+
+
 }
 
 //=============================================================================
@@ -115,29 +160,27 @@ void Hunter::ai()
 void Hunter::collisions()
 {
 	VECTOR2 collisionVector;
-	//if (hunterSword.collidesWith(enemy,collisionVector))
-	// if collision between ship and planet
-	/*if (ship1.collidesWith(planet, collisionVector))
+	if (hunterSword.collidesWith(enemy, collisionVector))
 	{
-		// bounce off planet
-		ship1.bounce(collisionVector, planet);
-		ship1.damage(PLANET);
+		// bounce off sword
+		enemy.bounce(collisionVector, hunterSword);
+		//enemy.damage(ENEMY);
 	}
-	if (ship2.collidesWith(planet, collisionVector))
+	if (enemy.collidesWith(player1, collisionVector))
 	{
-		// bounce off planet
-		ship2.bounce(collisionVector, planet);
-		ship2.damage(PLANET);
+		// bounce off player
+		player1.bounce(collisionVector, enemy);
+		//player1.damage(PLAYER);
 	}
-	// if collision between ships
+	/*/ if collision between ships
 	if (ship1.collidesWith(ship2, collisionVector))
 	{
-		// bounce off ship
-		ship1.bounce(collisionVector, ship2);
-		ship1.damage(SHIP);
-		// change the direction of the collisionVector for ship2
-		ship2.bounce(collisionVector*-1, ship1);
-		ship2.damage(SHIP);
+	// bounce off ship
+	ship1.bounce(collisionVector, ship2);
+	ship1.damage(SHIP);
+	// change the direction of the collisionVector for ship2
+	ship2.bounce(collisionVector*-1, ship1);
+	ship2.damage(SHIP);
 	}*/
 }
 
@@ -151,6 +194,7 @@ void Hunter::render()
 	nebula.draw();                          // add the orion nebula to the scene
 	//planet.draw();                          // add the planet to the scene
 	player1.draw();                           // add the player to the scene
+	enemy.draw();							  // add the enemy to the scene
 
 	//hunterSword.draw();
 	if (input->isKeyDown(VK_SPACE))//(player1.interact == true)//render the huntersword if space is pressed
@@ -179,6 +223,7 @@ void Hunter::releaseAll()
 	nebulaTexture.onLostDevice();
 	characterTextures.onLostDevice();
 	weaponTextures.onLostDevice();
+	enemyTextures.onLostDevice();
 	Game::releaseAll();
 	return;
 }
@@ -192,6 +237,7 @@ void Hunter::resetAll()
 	characterTextures.onResetDevice();
 	nebulaTexture.onResetDevice();
 	weaponTextures.onResetDevice();
+	enemyTextures.onLostDevice();
 	Game::resetAll();
 	return;
 }
