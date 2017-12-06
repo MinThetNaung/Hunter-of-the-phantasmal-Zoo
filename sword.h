@@ -11,7 +11,7 @@ namespace swordNS
 	const int   TEXTURE_COLS = 3;
 	const int   SWORD_START_FRAME = 0;      // player down start
 	const int   SWORD_END_FRAME = 4;
-	const float SWORD_ANIMATION_DELAY = 0.2f;
+	const float SWORD_ANIMATION_DELAY = 0.3f;
 }
 class Sword : public Entity
 {

@@ -9,7 +9,7 @@
 
 #include "entity.h"
 #include "constants.h"
-
+#include "sword.h"
 
 namespace playerNS
 {
@@ -32,7 +32,7 @@ namespace playerNS
 	const int   PLAYERRIGHT_END_FRAME = 74;        // Player right end
 	//const int   PLAYER_START_FRAME = 8;      // ship2 starts at frame 8
 	//const int   PLAYER_END_FRAME = 11;       // ship2 animation frames 8,9,10,11
-	const float PLAYER_ANIMATION_DELAY = 0.2f;    // time between frames
+	const float PLAYER_ANIMATION_DELAY = 0.1f;    // time between frames
 	//const int   SHIELD_START_FRAME = 24;    // shield start frame
 	//const int   SHIELD_END_FRAME = 27;      // shield end frame
 	//const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
@@ -58,7 +58,7 @@ public:
 	void update(float frameTime);
 	void damage(WEAPON);
 	float player::Getplayerlocation();
-	bool interact = true;
+	bool interact = false;
 	float PositionX = 0; // For Skills that activates in front of the player
 	float PositionY = 0;
 };

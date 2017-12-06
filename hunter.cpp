@@ -6,7 +6,7 @@
 // This class is the core of the game
 
 #include "hunter.h"
-
+#include "player.h"
 //=============================================================================
 // Constructor
 //=============================================================================
@@ -77,7 +77,7 @@ void Hunter::update()
 	//planet.update(frameTime);
 	//player1.update(frameTime);
 	hunterSword.update(frameTime);
-
+	//player1.update(frameTime);
 	if (input->isKeyDown(VK_RIGHT))           // if move right
 	{
 		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
@@ -99,7 +99,7 @@ void Hunter::update()
 		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
 	}
-
+	hunterSword.update(frameTime);
 
 }
 
@@ -152,15 +152,16 @@ void Hunter::render()
 	player1.draw();                           // add the player to the scene
 
 	//hunterSword.draw();
-	if (player1.interact == true)
+	if (input->isKeyDown(VK_SPACE))//(player1.interact == true)
 	{
+		player1.Getplayerlocation();
 		hunterSword.setX(player1.PositionX);
 		hunterSword.setY(player1.PositionY);
 		hunterSword.draw();
-		if (hunterSword.getCurrentFrame() == 4)
+		if (hunterSword.getCurrentFrame() == swordNS::SWORD_END_FRAME)
 		{
 			player1.interact = false;
-			hunterSword.setCurrentFrame(0);
+			hunterSword.setCurrentFrame(swordNS::SWORD_START_FRAME);
 		}
 	}
 	

@@ -99,14 +99,14 @@ void player::update(float frameTime)
 		endFrame = playerNS::PLAYER_END_FRAME;
 		direction = DOWN;
 	}
-	if (interact = false)
+	/*if (interact = false)
 	{
 		if (input->isKeyDown(VK_SPACE))           // if move right
 		{
 			Getplayerlocation();
 			interact = true;
 		}
-	}
+	}*/
 
 
 
@@ -157,21 +157,21 @@ float player::Getplayerlocation()
 	if (direction == UP)
 	{
 		PositionX = spriteData.x;
-		PositionY = spriteData.y - 48;
+		PositionY = (spriteData.y - 48);
 	}
 	if (direction == DOWN)
 	{
 		PositionX = spriteData.x;
-		PositionY = spriteData.y + 48;
+		PositionY = (spriteData.y + 48);
 	}
 	if (direction == RIGHT)
 	{
-		PositionX = spriteData.x + 48;
+		PositionX = (spriteData.x + 48);
 		PositionY = spriteData.y;
 	}
-	if (direction == DOWN)
+	if (direction == LEFT)
 	{
-		PositionX = spriteData.x - 48;
+		PositionX = (spriteData.x - 48);
 		PositionY = spriteData.y;
 	}
 	return PositionX, PositionY;
