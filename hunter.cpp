@@ -30,8 +30,8 @@ void Hunter::initialize(HWND hwnd)
 	Game::initialize(hwnd); // throws GameError
 
 							// nebula texture
-	//if (!nebulaTexture.initialize(graphics, NEBULA_IMAGE))
-		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula texture"));
+	if (!nebulaTexture.initialize(graphics, NEBULA_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula texture"));
 
 	// charactors textures
 	if (!characterTextures.initialize(graphics, CHARACTERS_IMAGE))
@@ -41,8 +41,8 @@ void Hunter::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing weapons textures"));
 
 	// nebula image
-	//if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
-		//throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula"));
+	if (!nebula.initialize(graphics, 0, 0, 0, &nebulaTexture))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing nebula"));
 
 	// planet
 	//if (!planet.initialize(this, planetNS::WIDTH, planetNS::HEIGHT, 2, &gameTextures))
@@ -148,7 +148,7 @@ void Hunter::render()
 {
 	graphics->spriteBegin();                // begin drawing sprites
 
-	//nebula.draw();                          // add the orion nebula to the scene
+	nebula.draw();                          // add the orion nebula to the scene
 	//planet.draw();                          // add the planet to the scene
 	player1.draw();                           // add the player to the scene
 

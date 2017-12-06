@@ -33,8 +33,8 @@
 const char CLASS_NAME[] = "Hunter of the phantasmal zoo";
 const char GAME_TITLE[] = "Hunter of the phantasmal zoo";
 const bool FULLSCREEN = false;              // windowed or fullscreen
-const UINT GAME_WIDTH = 640;               // width of game in pixels
-const UINT GAME_HEIGHT = 480;               // height of game in pixels
+const UINT GAME_WIDTH = 2304;         // width of game in pixels
+const UINT GAME_HEIGHT = 1536;          // height of game in pixels
 
 											// game
 const double PI = 3.14159265;
@@ -47,7 +47,7 @@ const float MAX_FRAME_TIME = 1.0f / MIN_FRAME_RATE; // maximum time used in calc
 //const float MASS_SHIP = 5.0f;
 const float Tilesize = 48;
 // graphic images
-const char NEBULA_IMAGE[] = "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
+const char NEBULA_IMAGE[] = "img\\bg.png";//photo
 const char TEXTURES_IMAGE[] = "pictures\\textures.png";  // game textures
 const char CHARACTERS_IMAGE[] = "img\\characters\\Actor1.png"; //character textures
 const char WEAPON_IMAGE[] = "img\\system\\sword.png";//weapon textures

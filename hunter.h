@@ -25,7 +25,7 @@ private:
 	TextureManager weaponTextures;    // weapon texture
 	player    player1;           // player
 	//Planet  planet;         // the planet
-	//Image   nebula;         // backdrop image
+	Image   nebula;         // backdrop image
 	Sword hunterSword;
 public:
 	// Constructor
