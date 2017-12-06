@@ -16,8 +16,8 @@ Sword::Sword() : Entity()
 	spriteData.rect.bottom = swordNS::HEIGHT;    // rectangle to select parts of an image
 	spriteData.rect.right = swordNS::WIDTH;
 	frameDelay = swordNS::SWORD_ANIMATION_DELAY;
-	startFrame = swordNS::SWORD_START_FRAME;     // first frame of ship animation
-	endFrame = swordNS::SWORD_END_FRAME;     // last frame of ship animation
+	startFrame = swordNS::SWORD_START_FRAME;     // first frame of sword animation
+	endFrame = swordNS::SWORD_END_FRAME;     // last frame of sword animation
 	currentFrame = startFrame;
 }
 float Sword::setdamage(float d) 

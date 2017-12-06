@@ -36,7 +36,7 @@ namespace playerNS
 	//const int   SHIELD_START_FRAME = 24;    // shield start frame
 	//const int   SHIELD_END_FRAME = 27;      // shield end frame
 	//const float SHIELD_ANIMATION_DELAY = 0.1f; // time between frames
-	enum DIRECTION {LEFT, RIGHT, UP, DOWN};
+	enum DIRECTION {LEFT, RIGHT, UP, DOWN}; // where is the player facing
 }
 
 // inherits from Entity class
@@ -57,7 +57,7 @@ public:
 		TextureManager *textureM);
 	void update(float frameTime);
 	void damage(WEAPON);
-	float player::Getplayerlocation();
+	float player::Getplayerlocation(); //getthe tile on front of the player
 	bool interact = false;
 	float PositionX = 0; // For Skills that activates in front of the player
 	float PositionY = 0;

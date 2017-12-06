@@ -151,7 +151,7 @@ void player::damage(WEAPON weapon)
 {
 	//shieldOn = true;
 }
-float player::Getplayerlocation()
+float player::Getplayerlocation() // gets the tile infront of the player
 {
 	
 	if (direction == UP)

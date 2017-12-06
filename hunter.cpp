@@ -99,7 +99,7 @@ void Hunter::update()
 		//hunterSword.setFrames(swordNS::SWORD_START_FRAME, swordNS::SWORD_END_FRAME);
 		player1.update(frameTime);
 	}
-	hunterSword.update(frameTime);
+	//hunterSword.update(frameTime);
 
 }
 
@@ -115,7 +115,7 @@ void Hunter::ai()
 void Hunter::collisions()
 {
 	VECTOR2 collisionVector;
-	if (hunterSword.collidesWith(enemy,collisionVector))
+	//if (hunterSword.collidesWith(enemy,collisionVector))
 	// if collision between ship and planet
 	/*if (ship1.collidesWith(planet, collisionVector))
 	{
@@ -153,7 +153,7 @@ void Hunter::render()
 	player1.draw();                           // add the player to the scene
 
 	//hunterSword.draw();
-	if (input->isKeyDown(VK_SPACE))//(player1.interact == true)
+	if (input->isKeyDown(VK_SPACE))//(player1.interact == true)//render the huntersword if space is pressed
 	{
 		player1.Getplayerlocation();
 		hunterSword.setX(player1.PositionX);
