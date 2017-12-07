@@ -13,6 +13,7 @@
 #include "input.h"
 #include "constants.h"
 #include "gameError.h"
+#include "console.h"
 
 class Game
 {

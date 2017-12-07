@@ -33,8 +33,8 @@
 const char CLASS_NAME[] = "Hunter of the phantasmal zoo";
 const char GAME_TITLE[] = "Hunter of the phantasmal zoo";
 const bool FULLSCREEN = false;              // windowed or fullscreen
-const UINT GAME_WIDTH = 2304;         // width of game in pixels
-const UINT GAME_HEIGHT = 1536;          // height of game in pixels
+const UINT GAME_WIDTH = 2304;         // width of game in pixels 2304
+const UINT GAME_HEIGHT = 1536;          // height of game in pixels 1536
 
 											// game
 const double PI = 3.14159265;
@@ -58,7 +58,7 @@ const char ENEMY_IMAGE[] = "img\\characters\\Monster.png";
 const UCHAR ESC_KEY = VK_ESCAPE;       // escape key
 const UCHAR ALT_KEY = VK_MENU;         // Alt key
 const UCHAR ENTER_KEY = VK_RETURN;       // Enter key
-
+const UCHAR CONSOLE_KEY = '`';         // ` key
 
 										 // weapon types
 enum WEAPON { TORPEDO, SHIP, PLANET };
